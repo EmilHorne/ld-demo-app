@@ -44,7 +44,7 @@ function App() {
         </div>
       ) : null}
       {upperimage ? (
-        <div className="body grid row-start-2 col-start-5 col-span-2 place-items-center">
+        <div className="body grid row-start-2 col-start-4 col-span-2 place-items-center">
           {logoversion ? (
             <img
               src={toggle}

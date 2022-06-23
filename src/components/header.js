@@ -10,7 +10,7 @@ export default function Header(props) {
       </div>
       <div className="text-base md:text-4xl pb-4 2xl:text-6xl">
         { props.bannertext === "off" ? (
-            <p>Launch and <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">release</span> features faster!</p>
+            <p><span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">Deploy changes without releasing them</span>, then <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">progressively release to targeted audiences</span> and <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">measure impact</span>!</p>
         ) : (
             <p>Welcome <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">{props.bannertext}</span>!</p>
         )}
