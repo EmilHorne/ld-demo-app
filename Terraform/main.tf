@@ -216,3 +216,31 @@ resource "launchdarkly_feature_flag" "prodHeader" {
     "terraform-managed",   
   ]
 }
+
+resource "launchdarkly_feature_flag" "bannerstring" {
+  project_key = launchdarkly_project.terraform.key
+  key         = "bannerstring"
+  name        = "Customize Banner Text"
+  description = "Inject custom text into the header banner image on the page"
+
+  variation_type = "string"
+  variations {
+    value       = "to stress-free SDLC"
+    name        = "custom text"
+    description = "Input text to inject on the page"
+  }
+  variations {
+    value       = "off"
+    name        = "default text"
+    description = "Special value that routes to default code path"
+  }
+  
+  defaults {
+    on_variation = 0
+    off_variation = 1
+  }
+
+  tags = [
+    "terraform-managed",   
+  ]
+}
