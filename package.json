@@ -1,7 +1,7 @@
 {
   "name": "ld-demo-app",
   "version": "0.1.0",
-  "homepage": "https://emilhorne.github.io/react_qr_app",
+  "homepage": "https://emilhorne.github.io/ld-demo-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
