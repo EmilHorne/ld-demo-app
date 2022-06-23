@@ -1,3 +1,14 @@
+// Terraform file for setting up flags for the React QR App demo.
+// You DON'T need to edit this file unless you're changing or creating
+// default flag configurations. 
+//
+// If you just want to run this file to create the flags, then:
+// 1. Edit the .tfvars file to add your project key and an API access token.
+// 2. Ensure that you have Terraform installed.
+// 3. Run: terraform plan -var-file=".tfvars"
+// 4. Assuming you got no errors from step 3, run: terraform apply -var-file=".tfvars"
+// 5. Go check out your new flags!
+
 terraform {
   required_providers {
     launchdarkly = {
@@ -6,17 +17,21 @@ terraform {
   }
 }
 
-variable "LAUNCHDARKLY_ACCESS_TOKEN" {
+variable "access_token" {
+  type = string
+}
+
+variable "project_key" {
   type = string
 }
 
 provider "launchdarkly" {
-  access_token = var.LAUNCHDARKLY_ACCESS_TOKEN
+  access_token = var.access_token
 }
 
 resource "launchdarkly_project" "terraform" {
-  key  = "cody-ld-demo-tf"
-  name = "cody-ld-demo-tf"
+  key  = var.project_key
+  name = "Interactive React Demo"
 
   tags = [
     "terraform",
@@ -53,8 +68,8 @@ resource "launchdarkly_feature_flag" "qrcode" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [
@@ -81,8 +96,8 @@ resource "launchdarkly_feature_flag" "logoversion" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [
@@ -109,8 +124,8 @@ resource "launchdarkly_feature_flag" "cardshow" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [
@@ -122,7 +137,7 @@ resource "launchdarkly_feature_flag" "upperimage" {
   project_key = launchdarkly_project.terraform.key
   key         = "upperimage"
   name        = "Upper Image"
-  description = "Show the upper immage on page"
+  description = "Show the upper image on page"
 
   variation_type = "boolean"
   variations {
@@ -137,8 +152,8 @@ resource "launchdarkly_feature_flag" "upperimage" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [
@@ -165,8 +180,8 @@ resource "launchdarkly_feature_flag" "login" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [
@@ -193,8 +208,8 @@ resource "launchdarkly_feature_flag" "prodHeader" {
   }
   
   defaults {
-    on_variation = 1
-    off_variation = 0
+    on_variation = 0
+    off_variation = 1
   }
 
   tags = [

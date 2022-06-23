@@ -12,6 +12,13 @@
   pointer-events: none;
 }
 
+.heart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
